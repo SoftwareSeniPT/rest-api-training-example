@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# package-lock.json (use yarn.lock instead)
+package-lock.json
+
+# yarn error logs
+yarn-error.log
+
+# Environment varibales
+.env*
+!.env*.example
+
+# Code coverage
+coverage
+.idea
+
+# Ignore built ts files
+dist/**/*
+
+# docker related...
+mongodb
+jwt
+static
