@@ -1,5 +1,6 @@
 const sellers = [{
-    seller: "Samsung"
+    seller: "Samsung",
+    products: ['Samsung Galaxy S10']
 }];
   
 module.exports = sellers;

@@ -90,7 +90,8 @@ describe("sellers", () => {
     const sort = 'seller';
     const sortBy = 1;
     const seller = 'Samsung';
-    const { body, status } = await request(app).get(`/v1/sellers?seller=${seller}&page=${page}&limit=${limit}&sort=${sort}&sortBy=${sortBy}`);
+    const product = 'Samsung Galaxy S10';
+    const { body, status } = await request(app).get(`/v1/sellers?seller=${seller}&product=${product}&page=${page}&limit=${limit}&sort=${sort}&sortBy=${sortBy}`);
     expect(status).toBe(httpStatus.OK);
     expect(body).toEqual({
         items: sellers,
