@@ -5,7 +5,7 @@ class ProductService {
     return {
       items: products,
       pagination: {
-        total: 10,
+        total: 1,
         page: page,
         limit: limit,
       }
