@@ -1,9 +1,18 @@
+const sellers = require("../mocks/sellers")
+
 class SellerService {
-  blockSeller() {
-    return {};
+  blockSeller(sellerId) {
+    return sellers[sellerId];
   }
-  searchSeller() {
-    return {};
+  searchSeller(seller, page, limit) {
+    return {
+      items: sellers,
+      pagination: {
+        total: 10,
+        page: page,
+        limit: limit,
+      }
+    }
   }
 }
 
