@@ -1,9 +1,23 @@
+const sellers = require('../mocks/sellers');
+
 class SellerService {
-  blockSeller() {
-    return {};
+  blockSeller(params) {
+    // Do block by params
+    let seller = sellers[params.sellerId];
+    return {
+      ...seller,
+      blacklisted: true
+    };
   }
-  searchSeller() {
-    return {};
+  searchSeller(q, page, limit) {
+    return {
+      items: sellers,
+      pagination: {
+        total: 10,
+        page: page,
+        limit: limit,
+      }
+    }
   }
 }
 
