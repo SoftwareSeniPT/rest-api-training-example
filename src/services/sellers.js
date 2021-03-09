@@ -1,8 +1,8 @@
 class SellerService {
-  blockSeller() {
+  blockSeller(sellerId) {
     return {};
   }
-  searchSeller() {
+  searchSeller(name, product) {
     return {};
   }
 }
