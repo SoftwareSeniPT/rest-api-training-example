@@ -58,17 +58,17 @@ describe("products", () => {
 describe("categories", () => {
   it('should be able to bulk delete categories', async () => {
     const { body, status } = await request(app).delete(`/categories?id=1&id=2`);
-    expect(status).toBe(httpStatus.OK);
+    expect(status).toBe(httpStatus.NO_CONTENT);
     expect(body).toEqual({});
   });
 });
 
 describe("sellers", () => {
   it('should be able to blacklist a seller', async () => {
-    const { body, status } = await request(app).patch(`/sellers/0`).send({
+    const { body, status } = await request(app).patch(`/sellers/1`).send({
       blacklisted: true
     });
-    expect(status).toBe(httpStatus.NO_CONTENT);
+    expect(status).toBe(httpStatus.OK);
     expect(body).toEqual({});
   });
   it('should be able to search sellers', async () => {
