@@ -5,7 +5,7 @@ const categoriesService = new CategoriesService();
 
 class CategoriesController {
   async deleteCategories(req, res) {
-    const { categoryIds } = req.body;
+    let { categoryIds } = req.body;
     const result = await categoriesService.deleteCategories(categoryIds);
     res.status(httpStatus.OK).send(result);
   }
