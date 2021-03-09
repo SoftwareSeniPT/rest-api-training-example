@@ -17,7 +17,7 @@ class ProductService {
   updateProduct(productId) {
     return products[productId];
   }
-  async createProduct() {
+  async createProduct(name, seller, categories) {
     throw new Error("FAILED_TO_CREATE_PRODUCT");
   }
   async deleteProduct(productId) {
