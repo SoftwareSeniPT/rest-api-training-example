@@ -32,7 +32,7 @@ describe("products", () => {
   });
 
   it('should be returning error when creating a product', async () => {
-    const { body, status } = await request(app).post(`/create-products`).send({
+    const { body, status } = await request(app).post(`/products`).send({
       name: "Samsung S10",
       categories: ["Phones", "Mobile Devices"],
       seller: "Samsung"
@@ -70,7 +70,7 @@ describe("categories", () => {
 
 describe("sellers", () => {
   it('should be able to blacklist a seller', async () => {
-    const { body, status } = await request(app).put(`/update-seller-block-status`).send({
+    const { body, status } = await request(app).put(`/sellers/update-block-status`).send({
       sellerId: 2,
       blacklisted: true
     });
@@ -78,7 +78,7 @@ describe("sellers", () => {
     expect(body).toEqual({});
   });
   it('should be able to search sellers', async () => {
-    const { body, status } = await request(app).post(`/sellers`).send({
+    const { body, status } = await request(app).get(`/sellers`).send({
       seller: "Samsung"
     });
     expect(status).toBe(httpStatus.OK);
