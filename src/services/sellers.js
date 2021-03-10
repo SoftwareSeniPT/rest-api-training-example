@@ -1,5 +1,5 @@
 class SellerService {
-  blockSeller() {
+  updateSeller(sellerId) {
     return {};
   }
   searchSeller() {

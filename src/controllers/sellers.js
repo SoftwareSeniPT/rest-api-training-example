@@ -5,7 +5,8 @@ const sellerService = new SellerService();
 
 class SellerController {
   async blockSeller(req, res) {
-    const result = await sellerService.blockSeller();
+    const { sellerId } = req.params;
+    const result = await sellerService.updateSeller(sellerId);
     res.status(httpStatus.NO_CONTENT).send(result);
   }
   async searchSeller(req, res) {
