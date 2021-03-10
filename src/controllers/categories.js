@@ -5,9 +5,19 @@ const categoriesService = new CategoriesService();
 
 class CategoriesController {
   async deleteCategories(req, res) {
-    const { categoryIds } = req.body;
-    const result = await categoriesService.deleteCategories(categoryIds);
-    res.status(httpStatus.OK).send(result);
+    try {
+      const { categoryIds } = req.body;
+      const result = await categoriesService.deleteCategories(categoryIds);
+      res.status(httpStatus.NO_CONTENT).send(result); 
+    } catch (error) {
+      res
+        .status(httpStatus.INTERNAL_SERVER_ERROR)
+        .send({
+          error: "CATEGORY_ERROR",
+          message: error.message,
+          status: httpStatus.INTERNAL_SERVER_ERROR,
+        });
+    }
   }
 }
 
