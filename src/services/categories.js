@@ -1,5 +1,5 @@
 class CategoriesService {
-  deleteCategories(categoryIds) {
+  async deleteCategories(categoryIds) {
     return {};
   }
 }
