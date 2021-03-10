@@ -5,11 +5,14 @@ const sellerService = new SellerService();
 
 class SellerController {
   async blockSeller(req, res) {
-    const result = await sellerService.blockSeller();
-    res.status(httpStatus.NO_CONTENT).send(result);
+    const { sellerId } = req.params;
+    const { blacklisted } = req.body;
+    const result = await sellerService.blockSeller(sellerId, blacklisted);
+    res.status(httpStatus.OK).send(result);
   }
-  async searchSeller(req, res) {
-    const result = await sellerService.searchSeller();
+  async searchSellers(req, res) {
+    const { seller, page, limit, sort, sortBy } = req.query;
+    const result = await sellerService.searchSellers(seller, parseInt(page), parseInt(limit), parseInt(sort), sortBy);
     res.status(httpStatus.OK).send(result);
   }
 }

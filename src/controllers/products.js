@@ -5,9 +5,9 @@ const productService = new ProductService();
 
 class ProductController {
   async searchProducts(req, res) {
-    const { q, category, seller, page, limit } = req.query;
-    const result = await productService.searchProducts(q, category, seller, parseInt(page), parseInt(limit));
-    res.status(httpStatus.CREATED).send(result);
+    const { name, seller, category, page, limit, sort, sortBy } = req.query;
+    const result = await productService.searchProducts(name, seller, category, parseInt(page), parseInt(limit), parseInt(sort), sortBy);
+    res.status(httpStatus.OK).send(result);
   }
   async getProduct(req, res) {
     const { productId } = req.params;
@@ -16,13 +16,15 @@ class ProductController {
   }
   async updateProduct(req, res) {
     const { productId } = req.params;
-    const result = await productService.updateProduct(productId);
+    const { name, seller, categories } = req.body;
+    const result = await productService.updateProduct(productId, name, seller, categories);
     res.status(httpStatus.OK).send(result);
   }
   async createProduct(req, res) {
     try {
       // This service will always be failed
-      const result = await productService.createProduct();
+      const { name, categories, seller } = req.body;
+      const result = await productService.createProduct(name, categories, seller);
       res.status(httpStatus.CREATED).send(result);
     } catch (error) {
       res
@@ -37,9 +39,9 @@ class ProductController {
   async deleteProduct(req, res) {
     try {
       // This service will always be failed
-      const { productId } = req.body;
+      const { productId } = req.params;
       const result = await productService.deleteProduct(productId);
-      res.status(httpStatus.OK).send(result); 
+      res.status(httpStatus.NO_CONTENT).send(result); 
     } catch (error) {
       res
         .status(httpStatus.INTERNAL_SERVER_ERROR)
