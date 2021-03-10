@@ -1,13 +1,15 @@
 const products = require("../mocks/products")
 
 class ProductService {
-  searchProducts(q, category, seller, page, limit) {
+  searchProducts(name, seller, category, page, limit, sort, sortBy) {
     return {
       items: products,
       pagination: {
         total: 10,
         page: page,
         limit: limit,
+        sort: sort,
+        sortBy: sortBy
       }
     }
   }
