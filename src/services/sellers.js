@@ -1,10 +1,10 @@
 class SellerService {
-  blockSeller() {
-    return {};
-  }
-  searchSeller() {
-    return {};
-  }
+    blockSeller(id) {
+        return {};
+    }
+    searchSeller() {
+        return {};
+    }
 }
 
 module.exports = SellerService;
