@@ -9,7 +9,8 @@ class SellerController {
     res.status(httpStatus.NO_CONTENT).send(result);
   }
   async searchSeller(req, res) {
-    const result = await sellerService.searchSeller();
+    const { seller, product, page, limit } = req.query;
+    const result = await sellerService.searchSeller(seller, product, parseInt(page), parseInt(limit));
     res.status(httpStatus.OK).send(result);
   }
 }
