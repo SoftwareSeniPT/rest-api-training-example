@@ -1,7 +1,7 @@
 const products = require("../mocks/products")
 
 class ProductService {
-  searchProducts(q, category, seller, page, limit) {
+  async searchProducts(q, category, seller, page, limit) {
     return {
       items: products,
       pagination: {
@@ -11,10 +11,10 @@ class ProductService {
       }
     }
   }
-  getProduct(productId) {
+  async getProduct(productId) {
     return products[productId];
   }
-  updateProduct(productId) {
+  async updateProduct(productId) {
     return products[productId];
   }
   async createProduct() {
