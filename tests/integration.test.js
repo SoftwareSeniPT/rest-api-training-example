@@ -26,13 +26,13 @@ describe("products", () => {
   });
 
   it('should be able to update product name', async () => {
-    const { body, status } = await request(app).put(`/products/0`).send({ name: "Samsung S10" });
+    const { body, status } = await request(app).patch(`/products/0`).send({ name: "Samsung S10" });
     expect(status).toBe(httpStatus.OK);
     expect(body).toEqual(products[0]);
   });
 
   it('should be returning error when creating a product', async () => {
-    const { body, status } = await request(app).post(`/create-products`).send({
+    const { body, status } = await request(app).post(`/products`).send({
       name: "Samsung S10",
       categories: ["Phones", "Mobile Devices"],
       seller: "Samsung"
@@ -60,7 +60,7 @@ describe("products", () => {
 
 describe("categories", () => {
   it('should be able to bulk delete categories', async () => {
-    const { body, status } = await request(app).post(`/categories/delete`).send({
+    const { body, status } = await request(app).delete(`/categories/delete`).send({
       categoryIds: [1, 2, 3, 4, 5]
     });
     expect(status).toBe(httpStatus.OK);
@@ -70,7 +70,7 @@ describe("categories", () => {
 
 describe("sellers", () => {
   it('should be able to blacklist a seller', async () => {
-    const { body, status } = await request(app).put(`/update-seller-block-status`).send({
+    const { body, status } = await request(app).patch(`/seller-block`).send({
       sellerId: 2,
       blacklisted: true
     });
@@ -78,9 +78,8 @@ describe("sellers", () => {
     expect(body).toEqual({});
   });
   it('should be able to search sellers', async () => {
-    const { body, status } = await request(app).post(`/sellers`).send({
-      seller: "Samsung"
-    });
+    const seller = "Samsung"
+    const { body, status } = await request(app).get(`/sellers?seller=${seller}`);
     expect(status).toBe(httpStatus.OK);
     expect(body).toEqual({});
   });
