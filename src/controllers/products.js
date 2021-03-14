@@ -5,9 +5,9 @@ const productService = new ProductService();
 
 class ProductController {
   async searchProducts(req, res) {
-    const { q, category, seller, page, limit } = req.query;
-    const result = await productService.searchProducts(q, category, seller, parseInt(page), parseInt(limit));
-    res.status(httpStatus.CREATED).send(result);
+    const { product, category, seller, page, limit } = req.query;
+    const result = await productService.searchProducts(product, category, seller, parseInt(page), parseInt(limit));
+    res.status(httpStatus.OK).send(result);
   }
   async getProduct(req, res) {
     const { productId } = req.params;
@@ -23,7 +23,7 @@ class ProductController {
     try {
       // This service will always be failed
       const result = await productService.createProduct();
-      res.status(httpStatus.CREATED).send(result);
+      res.status(httpStatus.OK).send(result);
     } catch (error) {
       res
         .status(httpStatus.INTERNAL_SERVER_ERROR)
@@ -37,9 +37,9 @@ class ProductController {
   async deleteProduct(req, res) {
     try {
       // This service will always be failed
-      const { productId } = req.body;
+      const { productId } = req.params;
       const result = await productService.deleteProduct(productId);
-      res.status(httpStatus.OK).send(result); 
+      res.status(httpStatus.NO_CONTENT).send(result); 
     } catch (error) {
       res
         .status(httpStatus.INTERNAL_SERVER_ERROR)
