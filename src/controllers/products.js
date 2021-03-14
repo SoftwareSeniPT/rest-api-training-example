@@ -7,7 +7,7 @@ class ProductController {
   async searchProducts(req, res) {
     const { q, category, seller, page, limit } = req.query;
     const result = await productService.searchProducts(q, category, seller, parseInt(page), parseInt(limit));
-    res.status(httpStatus.CREATED).send(result);
+    res.status(httpStatus.OK).send(result);
   }
   async getProduct(req, res) {
     const { productId } = req.params;
