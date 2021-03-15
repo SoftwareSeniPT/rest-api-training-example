@@ -1,5 +1,5 @@
 class SellerService {
-  blockSeller() {
+  blockSeller(sellerId) {
     return {};
   }
   searchSeller() {
