@@ -1,4 +1,4 @@
-# REST API Training Example
+# REST API Training Example 
 
 The purpose of this project is to provide API endpoints that will handle these scenario:
 
@@ -18,14 +18,14 @@ The purpose of this project is to provide API endpoints that will handle these s
     
 |#  |URL                        |HTTP Methods|Payload Samples                                                                                            |Description                                                                         |
 |---|---------------------------|------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-|1  |/products                  |GET         |Example query: /?q=Samsung&category=Phone&seller=Samsung                                                   |An endpoint to search products based on product name, product category, seller name.|
-|2  |/products/1                |GET         |                                                                                                           |An endpoint to get the details of a product.                                        |
-|3  |/products/1                |UPDATE      |Example data: {    name: "Samsung S10" }                                                                   |An endpoint to update the name of the product                                       |
-|4  |/create-products           |POST        |Example data: {    name: "Samsung S10",    categories: ["Phones", "Mobile Devices"],    seller: "Samsung" }|An endpoint to create a product                                                     |
-|5  |/products                  |DELETE      |Example data: {    productId: 1 }                                                                          |An endpoint to delete a product                                                     |
-|6  |/categories/delete         |POST        |Example data: {    categoryIds: [1, 2, 3, 4, 5] }                                                          |An endpoint to bulk delete categories                                               |
-|7  |/update-seller-block-status|UPDATE      |Example data: {     sellerId: 2,    blacklisted: true }                                                    |An endpoint to allow admin to blacklist a seller                                    |
-|8  |/sellers                   |POST        |Example data: {    seller: "Samsung" }                                                                     |An endpoint to search sellers based on seller name and product name                 |
+|1  |/api/v1/products                  |GET         |Example query: /?q=Samsung&category=Phone&seller=Samsung                                                   |An endpoint to search products based on product name, product category, seller name.|
+|2  |/api/v1/products/1                |GET         |                                                                                                           |An endpoint to get the details of a product.                                        |
+|3  |/api/v1/products/1                |PATCH      |Example data: {    name: "Samsung S10" }                                                                   |An endpoint to update the name of the product                                       |
+|4  |/api/v1/products           |POST        |Example data: {    name: "Samsung S10",    categories: ["Phones", "Mobile Devices"],    seller: "Samsung" }|An endpoint to create a product                                                     |
+|5  |/api/v1/products/1                  |DELETE      |                                                                          |An endpoint to delete a product                                                     |
+|6  |/api/v1/categories         |POST        |Example data: {    categoryIds: [1, 2, 3, 4, 5] }                                                          |An endpoint to bulk delete categories                                               |
+|7  |/api/v1/sellers/block|PATCH      |Example data: {     sellerId: 2,    blacklisted: true }                                                    |An endpoint to allow admin to blacklist a seller                                    |
+|8  |/api/v1/sellers                   |POST        |Example data: {    seller: "Samsung" }                                                                     |An endpoint to search sellers based on seller name and product name                 |
 
 
 ## Notes
