@@ -1,9 +1,18 @@
 class SellerService {
-  blockSeller() {
-    return {};
+  blockSeller(sellerId) {
+    return sellers[sellerId];
   }
-  searchSeller() {
-    return {};
+  searchSellers(seller, page, limit, sort, sortBy) {
+    return {
+      items: sellers,
+      pagination: {
+        total: 10,
+        page: page,
+        limit: limit,
+        sort: sort,
+        sortBy: sortBy
+      }
+    }
   }
 }
 
