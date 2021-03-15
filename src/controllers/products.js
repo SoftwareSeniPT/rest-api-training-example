@@ -6,7 +6,13 @@ const productService = new ProductService();
 class ProductController {
   async searchProducts(req, res) {
     const { q, category, seller, page, limit } = req.query;
-    const result = await productService.searchProducts(q, category, seller, parseInt(page), parseInt(limit));
+    const result = await productService.searchProducts(
+      q,
+      category,
+      seller,
+      parseInt(page),
+      parseInt(limit)
+    );
     res.status(httpStatus.CREATED).send(result);
   }
   async getProduct(req, res) {
@@ -25,13 +31,11 @@ class ProductController {
       const result = await productService.createProduct();
       res.status(httpStatus.CREATED).send(result);
     } catch (error) {
-      res
-        .status(httpStatus.INTERNAL_SERVER_ERROR)
-        .send({
-          error: "PRODUCT_ERROR",
-          message: error.message,
-          status: httpStatus.INTERNAL_SERVER_ERROR,
-        });
+      res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
+        error: 'PRODUCT_ERROR',
+        message: error.message,
+        status: httpStatus.INTERNAL_SERVER_ERROR,
+      });
     }
   }
   async deleteProduct(req, res) {
@@ -39,15 +43,13 @@ class ProductController {
       // This service will always be failed
       const { productId } = req.body;
       const result = await productService.deleteProduct(productId);
-      res.status(httpStatus.OK).send(result); 
+      res.status(httpStatus.NO_CONTENT).end();
     } catch (error) {
-      res
-        .status(httpStatus.INTERNAL_SERVER_ERROR)
-        .send({
-          error: "PRODUCT_ERROR",
-          message: error.message,
-          status: httpStatus.INTERNAL_SERVER_ERROR,
-        });
+      res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
+        error: 'PRODUCT_ERROR',
+        message: error.message,
+        status: httpStatus.INTERNAL_SERVER_ERROR,
+      });
     }
   }
 }
