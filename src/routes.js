@@ -22,12 +22,12 @@ router.get('/products/:productId', productController.getProduct);
 /*
 * An endpoint to update the name of the product
 */
-router.put('/products/:productId', productController.updateProduct);
+router.patch('/products/:productId', productController.updateProduct);
 
 /*
 * An endpoint to create a product
 */
-router.post('/create-products', productController.createProduct);
+router.post('/products', productController.createProduct);
 
 /*
 * An endpoint to delete a product
@@ -37,16 +37,16 @@ router.delete('/products', productController.deleteProduct);
 /*
 * An endpoint to bulk delete categories
 */
-router.post('/categories/delete', categoriesController.deleteCategories);
+router.delete('/categories/delete', categoriesController.deleteCategories);
 
 /*
 * An endpoint to allow admin to blacklist a seller
 */
-router.put('/update-seller-block-status', sellerController.blockSeller);
+router.patch('/seller-block', sellerController.blockSeller);
 
 /*
 * An endpoint to search sellers based on seller name and product name
 */
-router.post('/sellers', sellerController.searchSeller);
+router.get('/sellers', sellerController.searchSeller);
 
 module.exports = router;
