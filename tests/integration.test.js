@@ -13,8 +13,8 @@ describe("products", () => {
       items: products,
       pagination: {
         total: 10,
-        page: page,
-        limit: limit,
+        page,
+        limit
       }
     });
   });
