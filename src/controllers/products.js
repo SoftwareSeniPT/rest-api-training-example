@@ -37,7 +37,7 @@ class ProductController {
   async deleteProduct(req, res) {
     try {
       // This service will always be failed
-      const { productId } = req.body;
+      const { productId } = req.params;
       const result = await productService.deleteProduct(productId);
       res.status(httpStatus.OK).send(result); 
     } catch (error) {
