@@ -5,22 +5,37 @@ class ProductService {
     return {
       items: products,
       pagination: {
-        total: 10,
+        total: products.length,
         page: page,
         limit: limit,
       }
     }
   }
-  getProduct(productId) {
-    return products[productId];
+  async getProduct(productId) {
+    return products[productId] ? products[productId] : false;
   }
-  updateProduct(productId) {
-    return products[productId];
+  async updateProduct(productId, data) {
+    if (products[productId]) {
+      products[productId] = {
+        ...products[productId],
+        ...data,
+      }
+      return products[productId];
+    }
+    return false;
   }
-  async createProduct() {
-    throw new Error("FAILED_TO_CREATE_PRODUCT");
+  async createProduct(data) {
+    try {
+      products.push(data);
+      return this.searchProducts()
+    } catch (error) {
+      throw new Error("FAILED_TO_CREATE_PRODUCT");
+    }
   }
   async deleteProduct(productId) {
+    if (products[productId]) {
+      return delete products[productId];
+    }
     throw new Error("FAILED_TO_DELETE_A_PRODUCT");
   }
 }
