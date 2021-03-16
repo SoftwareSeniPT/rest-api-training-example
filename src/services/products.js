@@ -1,4 +1,4 @@
-const products = require("../mocks/products")
+const products = require("../mocks/products");
 
 class ProductService {
   searchProducts(q, category, seller, page, limit) {
@@ -8,19 +8,19 @@ class ProductService {
         total: 10,
         page: page,
         limit: limit,
-      }
-    }
+      },
+    };
   }
-  getProduct(productId) {
-    return products[productId];
+  getProduct(id) {
+    return products[id];
   }
-  updateProduct(productId) {
-    return products[productId];
+  updateProduct(id) {
+    return products[id];
   }
   async createProduct() {
     throw new Error("FAILED_TO_CREATE_PRODUCT");
   }
-  async deleteProduct(productId) {
+  async deleteProduct(id) {
     throw new Error("FAILED_TO_DELETE_A_PRODUCT");
   }
 }
