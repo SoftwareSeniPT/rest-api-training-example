@@ -7,7 +7,7 @@ class CategoriesController {
   async deleteCategories(req, res) {
     const { categoryIds } = req.body;
     const result = await categoriesService.deleteCategories(categoryIds);
-    res.status(httpStatus.OK).send(result);
+    res.status(httpStatus.NO_CONTENT).send([]);
   }
 }
 
