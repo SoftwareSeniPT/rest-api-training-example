@@ -22,7 +22,7 @@ router.get('/products/:productId', productController.getProduct);
 /*
 * An endpoint to update the name of the product
 */
-router.put('/products/:productId', productController.updateProduct);
+router.patch('/products/:productId', productController.updateProduct);
 
 /*
 * An endpoint to create a product
@@ -42,7 +42,7 @@ router.post('/categories', categoriesController.deleteCategories);
 /*
 * An endpoint to allow admin to blacklist a seller
 */
-router.put('/sellers', sellerController.blockSeller);
+router.patch('/sellers', sellerController.blockSeller);
 
 /*
 * An endpoint to search sellers based on seller name and product name

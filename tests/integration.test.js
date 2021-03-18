@@ -26,7 +26,7 @@ describe("products", () => {
   });
 
   it('should be able to update product name', async () => {
-    const { body, status } = await request(app).put(`/products/0`).send({ name: "Samsung S10" });
+    const { body, status } = await request(app).patch(`/products/0`).send({ name: "Samsung S10" });
     expect(status).toBe(httpStatus.OK);
     expect(body).toEqual(products[0]);
   });
@@ -70,7 +70,7 @@ describe("categories", () => {
 
 describe("sellers", () => {
   it('should be able to blacklist a seller', async () => {
-    const { body, status } = await request(app).put(`/sellers`).send({
+    const { body, status } = await request(app).patch(`/sellers`).send({
       sellerId: 2,
       blacklisted: true
     });
