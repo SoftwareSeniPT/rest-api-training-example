@@ -15,7 +15,7 @@ The purpose of this project is to provide API endpoints that will handle these s
 8. An endpoint to search sellers based on
     1. Seller name
     2. Product name
-    
+
 |#  |URL                        |HTTP Methods|Payload Samples                                                                                            |Description                                                                         |
 |---|---------------------------|------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
 |1  |/products                  |GET         |Example query: /?q=Samsung&category=Phone&seller=Samsung                                                   |An endpoint to search products based on product name, product category, seller name.|
@@ -24,7 +24,7 @@ The purpose of this project is to provide API endpoints that will handle these s
 |4  |/create-products           |POST        |Example data: {    name: "Samsung S10",    categories: ["Phones", "Mobile Devices"],    seller: "Samsung" }|An endpoint to create a product                                                     |
 |5  |/products                  |DELETE      |Example data: {    productId: 1 }                                                                          |An endpoint to delete a product                                                     |
 |6  |/categories/delete         |POST        |Example data: {    categoryIds: [1, 2, 3, 4, 5] }                                                          |An endpoint to bulk delete categories                                               |
-|7  |/update-seller-block-status|UPDATE      |Example data: {     sellerId: 2,    blacklisted: true }                                                    |An endpoint to allow admin to blacklist a seller                                    |
+|7  |/update-seller-block-status|UPDATE      |Example data: {    sellerId: 2,    blacklisted: true }                                                     |An endpoint to allow admin to blacklist a seller                                    |
 |8  |/sellers                   |POST        |Example data: {    seller: "Samsung" }                                                                     |An endpoint to search sellers based on seller name and product name                 |
 
 
