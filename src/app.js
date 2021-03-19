@@ -8,6 +8,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use('/', routes);
+app.use('/app/v1', routes);
 
 module.exports = app;
